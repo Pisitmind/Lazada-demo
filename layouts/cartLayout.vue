@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app >
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -31,7 +31,9 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <a href="/">
-        <img  class="logo-laz" src="~/assets/lazada.png" />
+        <v-icon large>
+          mdi-home-variant-outline
+        </v-icon>
       </a>
       <!-- <v-toolbar-title v-text="title" /> -->
       <v-spacer />
@@ -80,6 +82,10 @@ export default {
 <style scoped>
 .logo-laz{
   max-height: 30px;
+
+}
+.a{
+  text-decoration: none;
 }
 
 

@@ -1,5 +1,5 @@
 <template>
-  <v-app white>
+  <v-app class="bg">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -37,7 +37,9 @@
       src="../static/image/lazada.png"
      ></v-img> -->
       <a href="/">
-        <img  class="logo-laz" src="~/assets/lazada.png" />
+        <v-icon large>
+           mdi-home-variant-outline
+        </v-icon>
       </a>
       <!-- <v-toolbar-title v-text="title" /> -->
       <v-spacer />
@@ -91,7 +93,7 @@
         </div> -->
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container >
         <nuxt />
       </v-container>
     </v-main>
@@ -149,7 +151,9 @@ export default {
 </script>
 <style scoped>
 
-
+.bg{
+  background-color:#F5F5F5;
+}
 .logo-laz{
   max-height: 30px;
 }

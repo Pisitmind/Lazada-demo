@@ -5,7 +5,7 @@
                 <h2 align="">Just for You</h2>
             </div>
             <div class="cart-show">
-            <div class="btn-cart-bar">
+            <div class="btn-cart-bar mb-3">
                 <v-badge
                     :content="count_itm()"
                     :value="count_itm()"
@@ -29,7 +29,7 @@
                             <div class="text-card">
                                 <div class="text-dtail">
                                     <div>
-                                        <span class="d-inline-block text-truncate" >
+                                        <span class="d-inline-block text-truncate" style="max-width: 250px;">
                                             {{cart.dis}}</span>
                                     </div>
                                     <div class="price-box"><span class="currency">฿</span><span class="price">{{cart.price}}</span></div>
@@ -66,23 +66,24 @@
       <hr>
       <br>
      <v-layout row wrap>
-         <v-flex xs6 sm6 md4 lg2 v-for="cart in carts" :key="cart.name">
+         <v-flex xs6 sm4 md4 lg3 v-for="cart in carts" :key="cart.name">
              <v-hover
         v-slot="{ hover }"
         open-delay="100"
       >
              <v-card flat class="text-lg-center ma-3 center"
+                color="white"
                 :elevation="hover ? 16 : 2"
                :class="{ 'on-hover': hover }"
-               width="185"
+
              >
-                 <v-responsive class="pb-1">
-                      <img  height="190" :src="cart.photo">
+                 <v-responsive class="pb-1 ">
+                      <img  height="250" width="100%" :src="cart.photo">
                  </v-responsive>
-                 <v-card-text>
-                     <div class="subheading">{{cart.mess}}</div>
+                 <v-card-text >
+                     <div class="subheading"><p class="text-truncate black--text">{{cart.mess}}</p></div>
                      <div class="price-text"><span class="currency">฿</span>{{cart.price}}</div>
-                     <div class="grey--text">{{cart.discription}}</div>
+                     <!-- <div class="grey--text">{{cart.discription}}</div> -->
                  </v-card-text>
                  <v-card-actions class="btn-card "     >
                      <v-btn flat color="deep-orange" @click="addToCart(cart),messages++">
@@ -94,37 +95,7 @@
              </v-hover>
          </v-flex>
      </v-layout>
-<!-- 
-     <div class="asdf" v-if="cart_stock!=0">
-         <table class="table">
-             <thead class="thead">
-                 <tr>
-                     <th scope="col">pic </th>
-                     <th scope="col">name </th>
-                     <th scope="col">price</th>
-                     <th scope="col">qty</th>
-                     <th scope="col">total</th>
-                     <th scope="col">del</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr v-for="item in cart_stock" :key="item.id">
-                    <td>
-                        <img  height="30" :src="item.image"></td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.price}}</td>
-                    <td>
-                        <v-btn @click="minusQty(item)">-</v-btn>
-                        {{item.qty}}
-                        <v-btn @click="plusQty(item)">+</v-btn>
-                    </td>
-                    <td>{{item.total}}</td>
-                    <td><v-btn @click="removeProduct(item)">del</v-btn></td>
-                 </tr>
-             </tbody>
-         </table>
-     </div> -->
-       
+
     </div>
 </template>
 
@@ -352,6 +323,7 @@ export default {
 .head-tag{
     display:flex;
     justify-content:space-between;
+    color: black;
 }
 
 
@@ -402,6 +374,11 @@ export default {
     padding: 5px 0 0 10px;
     font-size: 14px;    
 }
+.pb-1{
+    background-color:white;
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+    /* border: .1px solid red; */
+}
 
 .img-card{
     height: 40px;
@@ -425,7 +402,10 @@ export default {
     color:black;
     font-size: 14px;
 }
-
+.subheading{
+    display:block;
+    white-space: initial;
+}
 .d-inline-block .text-truncate{
     display: block;
     max-width: 150px;
@@ -454,6 +434,7 @@ export default {
 
 .price-text {
     color: #f57224;
+    text-align: center;
 }
 .v-card.on-hover.theme--dark{
 
@@ -481,16 +462,21 @@ export default {
 }
 .cart-box1 {
   /* width: 100%; */
-  width: 340px;
+  width: 350px;
   background-color: white;
 }
 .hide-content{
     width: 100%;
     position:absolute;
-    margin-left:-280px;
+    margin-left:-270px;
     margin-top: 40px;
     display:none;
     z-index: 99999;
+}
+
+.d-inline-block .text-truncate{
+    display: block;
+    max-width: 150px;
 }
 
 }
