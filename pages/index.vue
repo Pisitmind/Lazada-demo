@@ -21,8 +21,6 @@ export default {
   data (){
         return {
             carts_c:[],
-            item1:0,
-            item2:0,
             }
     },
   //   methods: {

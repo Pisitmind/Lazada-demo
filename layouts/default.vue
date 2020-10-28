@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app white>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -30,21 +30,18 @@
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      
-      <v-toolbar-title v-text="title" />
+      <!-- <v-img 
+      lazy-src="https://picsum.photos/id/11/10/6"
+      max-height="150"
+      max-width="250"
+      src="../static/image/lazada.png"
+     ></v-img> -->
+      <a href="/">
+        <img  class="logo-laz" src="~/assets/lazada.png" />
+      </a>
+      <!-- <v-toolbar-title v-text="title" /> -->
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
+
 
         <!-- <div class="right-btn">
           <div class="cart-show">
@@ -99,28 +96,11 @@
       </v-container>
     </v-main>
     
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <v-footer
       :absolute="!fixed"
       app
     >
+      <span>    |    Developered by Pisit Boonklod   |   </span>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -170,7 +150,9 @@ export default {
 <style scoped>
 
 
-
+.logo-laz{
+  max-height: 30px;
+}
 .cart-show{
   display:flex;
 }

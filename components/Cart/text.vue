@@ -2,7 +2,6 @@
     <div class="cart-page">
         <div id="container" class="container">
             <div>
-
                 <div class="root">
                     <div id="container_c" class="container_all" style="margin-top: 12px;">
                         <div id="left_container" class="container" >
@@ -10,10 +9,10 @@
                                 <div class="list-header-container">
                                     <div class="list-header">
                                         <div class="checkbox-wrap">
-                                            <!-- <label class="next-checkbox list-header-checkbox">
-                                                <input type="checkbox" @click="selectAll" v-model="allSelected">
-                                            </label> -->
-                                           Have( {{ carts.length }} item(s)) in cart
+                                            <label class="next-checkbox list-header-checkbox">
+                                                <input type="checkbox" value="on">
+                                            </label>
+                                            Select All ( {{ carts.length }} item(s))
                                         </div>
                                         <div class="list-header-operate">
                                             <div class="btn-wrap">
@@ -41,7 +40,7 @@
                                                     id="cart.id" 
                                                     v-model="checkbox_id">
                                             </label>
-                                            <div class="img-wrap" > <img class="img-wrap center" :src="cart.photo"></div>
+                                            <div class="img-wrap"></div>
                                             <div class="content-item">
                                                 <a class="d-tail">{{cart.mess}}</a>
                                                 <a class="grey--text sub-tail">{{cart.subtext}}</a>
@@ -133,7 +132,7 @@
                                                         <input type="text" placeholder="Enter Voucher Code" value="" height="100%">
                                                     </div>
                                                     <div class="voucher-input-btn">
-                                                        <v-btn small color="#1a9cb7">
+                                                        <v-btn color="#1a9cb7">
                                                             Apply
                                                         </v-btn>
                                                     </div>
@@ -181,8 +180,6 @@ export default {
     carts () {
       return this.$store.state.carts
     },
-    allSelected: false,
-    userIds: [],
 
     subtotal () {
         let total=0;
@@ -199,12 +196,9 @@ export default {
   },
 
   data (){
-
-      
         return {
             checkbox_id: []
         }
-        
     },
     methods: {
         increcse(cart) {
@@ -234,18 +228,6 @@ export default {
                     idx: element
                     });
             });
-        },
-        selectAll: function() {
-            this.userIds = [];
-
-            if (this.allSelected) {
-                for (cart in this.carts) {
-                    this.userIds.push(this.carts[cart].id.toString());
-                }
-            }
-        },
-        select: function() {
-            this.allSelected = false;
         }
       
   },
@@ -258,7 +240,7 @@ export default {
 .container {
     /* width: 1188px; */
     color: #000;
-    background-color:#f4f4f4;
+    /* background-color:#f4f4f4; */
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -417,7 +399,7 @@ div{
     width: 80px;
     height: 80px;
     margin-right: 12px;
-    /* background-color:grey; */
+    background-color:grey;
 }
 .cart-item-right {
     display: table-cell;
@@ -540,11 +522,6 @@ div{
 .voucher-input-btn{
     height: 40px;
     width:104px;
-    padding-left: 20px;
-    align-items: center;
-    align-content: center;
-    color: white;
-    /* background-color:#1a9cb7; */
 }
 .checkout-order-total {
     margin-top: 10px;
@@ -581,102 +558,6 @@ div{
     float: right;
     line-height: 14px;
     margin-left: 12px;
-}
-
-@media only screen and (max-width:620px) {
-
-.container_all{
-    display:flex;
-    flex-direction: column;
-    width:100%;
-}
-#left_container{
-    display:flex;
-    flex-direction: column;
-    width:100%;
-}
-#right_container{
-    display:flex;
-    flex-direction: column;
-    width:100%;
-}
-.location-address{
-    font: size 14px;
-}
-.summary-section .voucher-input{
-    width:100%;
-    /* background-color:red; */
-}
-.list-header-top .list-header{
-    width:100%;
-}
-.checkbox-wrap{
-    /* width:100%; */
-    font-size:12px ;
-}
-.checkout-shop-child1{
-    display:flex;
-    flex-direction: column;
-    /* background-color:black; */
-}
-.voucher-input-inner{
-    width: 100%;
-}
-.voucher-input-btn{
-    align-items: center;
-    align-content: center;
-    padding: 5px 0px;
-
-}
-.cart-item{
-    display:flex;
-    /* flex-direction: column; */
-    width:100%;
-    /* background-color:red; */
-}
-.cart-item-checkbox{
-    float: left;
-    margin-right: 16px;
-    margin-top: 32px;
-    margin-bottom: 10px;
-}
-
-.cart-item-inner{
-    display:flex;
-    flex-direction: column;
-}
-.cart-item-left .img-wrap{
-    height:120px;
-    width:280px;
-    justify-content: center;
-    align-items: center;
-}
-.cart-item-left{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction:column;
-    /* background-color:blue; */
-
-}
-.content-item a{
-    font-size: 16px;
-}
-.cart-item-middle{
-    width: 100%;
-    display:flex;
-    align-items: center;
-    flex-direction:column;
-    /* background-color:tomato; */
-}
-.cart-item-right{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    /* background-color:blue; */
-}
-
 }
 
 </style>
